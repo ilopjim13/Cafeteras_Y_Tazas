@@ -8,12 +8,9 @@ class Cafetera(var ubicacion:String) {
     }
 
     constructor(ubicacion: String, capacidadMax:Int, cantidadAct:Int) : this(ubicacion) {
-        if (cantidadAct > capacidadMax)  {
-            this.cantidadAct = this.capacidadMax
-        } else {
-            this.capacidadMax = capacidadMax
-            this.cantidadAct = cantidadAct
-        }
+        if (cantidadAct > capacidadMax)  this.cantidadAct = this.capacidadMax
+        else this.cantidadAct = cantidadAct
+        this.capacidadMax = capacidadMax
     }
 
     fun llenar() {
@@ -21,12 +18,14 @@ class Cafetera(var ubicacion:String) {
     }
 
     fun servirTaza(taza:Taza) {
-        if (this.cantidadAct < taza.capacidad) {
-            taza.llenar(this.cantidadAct)
-            this.cantidadAct = 0
-        } else {
-            this.cantidadAct -= taza.capacidad
-            taza.llenar()
+        if (this.cantidadAct > 0) { //faltaba este if
+            if (this.cantidadAct < taza.capacidad) {
+                taza.llenar(this.cantidadAct)
+                this.cantidadAct = 0
+            } else {
+                this.cantidadAct -= taza.capacidad
+                taza.llenar()
+            }
         }
     }
 

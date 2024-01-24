@@ -1,8 +1,9 @@
 import java.lang.IllegalArgumentException
 
-class Taza(color:String, capacidad: Int) {
-    var color: String = "Blanco"
-    var capacidad = 50
+class Taza(val color:Color = Color.blanco, val capacidad: Int = 50) {
+    //var color: String = "Blanco"
+    //var capacidad = 50
+
     var cantidad:Int = 0
         set(value) {
             field = try {
@@ -12,10 +13,10 @@ class Taza(color:String, capacidad: Int) {
                 this.capacidad
             }
         }
-    init {
-        this.color = color
-        this.capacidad = capacidad
-    }
+    //init {
+    //    this.color = color
+    //    this.capacidad = capacidad
+    //}
 
 
 
@@ -29,7 +30,7 @@ class Taza(color:String, capacidad: Int) {
     }
 
     override fun toString(): String {
-        return "Taza (Color = ${this.color.uppercase()}, Capacidad = ${this.capacidad}c.c, Cantidad = ${this.cantidad}c.c.)"
+        return "Taza (Color = ${this.color}, Capacidad = ${this.capacidad}c.c, Cantidad = ${this.cantidad}c.c.)"
     }
 
 }

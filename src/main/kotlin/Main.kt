@@ -58,6 +58,9 @@ fun main() {
     println(cafetera2)
     println(cafetera3)
 
+    listaTazas.forEach { println(it)} //faltaba este for
+
+
     println("**********************************************")
     println("Llenar la cafetera1 de café...")
     println("Vaciar la cafetera2...")
@@ -103,33 +106,43 @@ fun main() {
     println(cafetera2)
     println(cafetera3)
     println("")
-    for (i in listaTazas) {
-        println(i)
-    }
+    listaTazas.forEach { println(it)}
+    //for (i in listaTazas) {
+    //    println(i)
+    //}
 
 }
 
 fun crearTazas(): List<Taza> {
     val num = listOf(50, 75, 100)
-    val taza1 = Taza("Azul", num.random())
-    val taza2 = Taza("Blanco", num.random())
-    val taza3 = Taza("Gris", num.random())
-    val taza4 = Taza("Verde", num.random())
-    val taza5 = Taza("Negro", num.random())
-    val taza6 = Taza("Blanco", num.random())
-    val taza7 = Taza("Azul", num.random())
-    val taza8 = Taza("Gris", num.random())
-    val taza9 = Taza("Verde", num.random())
-    val taza10 = Taza("Azul", num.random())
-    val taza11 = Taza("Blanco", num.random())
-    val taza12 = Taza("Negro", num.random())
-    val taza13 = Taza("Verde", num.random())
-    val taza14 = Taza("Azul", num.random())
-    val taza15 = Taza("Blanco", num.random())
-    val taza16 = Taza("Gris", num.random())
-    val taza17 = Taza("Negro", num.random())
-    val taza18 = Taza("Gris", num.random())
-    val taza19 = Taza("Verde", num.random())
-    val taza20 = Taza("Azul", num.random())
-    return mutableListOf(taza1, taza2, taza3, taza4, taza5, taza6, taza7, taza8, taza9, taza10, taza11, taza12, taza13, taza14, taza15, taza16, taza17, taza18, taza19, taza20)
+
+    //val taza1 = Taza("Azul", num.random())
+    //val taza2 = Taza("Blanco", num.random())
+    //val taza3 = Taza("Gris", num.random())
+    //val taza4 = Taza("Verde", num.random())
+    //val taza5 = Taza("Negro", num.random())
+    //val taza6 = Taza("Blanco", num.random())
+    //val taza7 = Taza("Azul", num.random())
+    //val taza8 = Taza("Gris", num.random())
+    //val taza9 = Taza("Verde", num.random())
+    //val taza10 = Taza("Azul", num.random())
+    //val taza11 = Taza("Blanco", num.random())
+    //val taza12 = Taza("Negro", num.random())
+    //val taza13 = Taza("Verde", num.random())
+    //val taza14 = Taza("Azul", num.random())
+    //val taza15 = Taza("Blanco", num.random())
+    //val taza16 = Taza("Gris", num.random())
+    //val taza17 = Taza("Negro", num.random())
+    //val taza18 = Taza("Gris", num.random())
+    //val taza19 = Taza("Verde", num.random())
+    //val taza20 = Taza("Azul", num.random())
+    //return mutableListOf(taza1, taza2, taza3, taza4, taza5, taza6, taza7, taza8, taza9, taza10, taza11, taza12, taza13, taza14, taza15, taza16, taza17, taza18, taza19, taza20)
+
+    return mutableListOf<Taza>().apply {
+        for (i in 1..20) {
+            val capacidadAleatoria = num.random()
+            val taza = Taza(Color.entries.toTypedArray().random(), capacidadAleatoria)
+            add(taza)
+        }
+    }
 }
